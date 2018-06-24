@@ -1,4 +1,4 @@
-# barcode-api-client\BarcodeLookupApi
+# barcode-api-client-invoke\BarcodeLookupApi
 
 All URIs are relative to *https://api.cloudmersive.com*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **barcodeLookupEanLookup**
-> \barcode-api-client\barcode-api-client\BarcodeLookupResponse barcodeLookupEanLookup($value)
+> \barcode-api-client-invoke\barcode-api-client-model\BarcodeLookupResponse barcodeLookupEanLookup($value)
 
 Lookup a barcode value and return product data
 
@@ -18,11 +18,11 @@ Lookup a barcode value and return product data
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: Apikey
-$config = barcode-api-client\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+$config = barcode-api-client-invoke\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = barcode-api-client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+// $config = barcode-api-client-invoke\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
 
-$apiInstance = new barcode-api-client\Api\BarcodeLookupApi(
+$apiInstance = new barcode-api-client-invoke\Api\BarcodeLookupApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\barcode-api-client\barcode-api-client\BarcodeLookupResponse**](../Model/BarcodeLookupResponse.md)
+[**\barcode-api-client-invoke\barcode-api-client-model\BarcodeLookupResponse**](../Model/BarcodeLookupResponse.md)
 
 ### Authorization
 
