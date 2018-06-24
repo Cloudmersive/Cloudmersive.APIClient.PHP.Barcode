@@ -6,6 +6,7 @@
   "gitUserId": "Cloudmersive",
   "gitRepoId": "Cloudmersive.APIClient.PHP.Barcode",
   "composerVendorName": "cloudmersive",
-  "composerProjectName": "barcode-api-client"
+  "composerProjectName": "barcode-api-client",
+  "packagePath": "barcode-api-client"
   
 }  
