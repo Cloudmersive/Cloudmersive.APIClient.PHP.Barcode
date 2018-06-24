@@ -6,5 +6,6 @@
   "invokerPackage": "barcode_api_client",
   "modelPackage": "barcode_api_client",
   "apiPackage": "barcode_api_client",
-  "gitUserId": "Cloudmersive"
+  "gitUserId": "Cloudmersive",
+  "gitRepoId": "Cloudmersive.APIClient.PHP.Barcode"
 }  
