@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  barcode_api_client
+ * @package  barcode-api-client-invoke
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,7 +27,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace barcode_api_client;
+namespace barcode-api-client-invoke;
 
 /**
  * BarcodeLookupResponseTest Class Doc Comment
@@ -35,7 +35,7 @@ namespace barcode_api_client;
  * @category    Class */
 // * @description BarcodeLookupResponse
 /**
- * @package     barcode_api_client
+ * @package     barcode-api-client-invoke
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
