@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  barcode_api_client
+ * @package  barcode-api-client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace barcode_api_client\barcode_api_client;
+namespace barcode-api-client\barcode-api-client;
 
 use \ArrayAccess;
-use \barcode_api_client\ObjectSerializer;
+use \barcode-api-client\ObjectSerializer;
 
 /**
  * ProductMatch Class Doc Comment
  *
  * @category Class
- * @package  barcode_api_client
+ * @package  barcode-api-client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */

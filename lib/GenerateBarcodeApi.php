@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  barcode_api_client
+ * @package  barcode-api-client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace barcode_api_client\barcode_api_client;
+namespace barcode-api-client\barcode-api-client;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use barcode_api_client\ApiException;
-use barcode_api_client\Configuration;
-use barcode_api_client\HeaderSelector;
-use barcode_api_client\ObjectSerializer;
+use barcode-api-client\ApiException;
+use barcode-api-client\Configuration;
+use barcode-api-client\HeaderSelector;
+use barcode-api-client\ObjectSerializer;
 
 /**
  * GenerateBarcodeApi Class Doc Comment
  *
  * @category Class
- * @package  barcode_api_client
+ * @package  barcode-api-client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -89,7 +89,7 @@ class GenerateBarcodeApi
      *
      * @param  string $value Barcode value to generate from (required)
      *
-     * @throws \barcode_api_client\ApiException on non-2xx response
+     * @throws \barcode-api-client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -106,7 +106,7 @@ class GenerateBarcodeApi
      *
      * @param  string $value Barcode value to generate from (required)
      *
-     * @throws \barcode_api_client\ApiException on non-2xx response
+     * @throws \barcode-api-client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
@@ -351,7 +351,7 @@ class GenerateBarcodeApi
      *
      * @param  string $value Barcode value to generate from (required)
      *
-     * @throws \barcode_api_client\ApiException on non-2xx response
+     * @throws \barcode-api-client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -368,7 +368,7 @@ class GenerateBarcodeApi
      *
      * @param  string $value Barcode value to generate from (required)
      *
-     * @throws \barcode_api_client\ApiException on non-2xx response
+     * @throws \barcode-api-client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
@@ -613,7 +613,7 @@ class GenerateBarcodeApi
      *
      * @param  string $value QR code text to convert into the QR code barcode (required)
      *
-     * @throws \barcode_api_client\ApiException on non-2xx response
+     * @throws \barcode-api-client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -630,7 +630,7 @@ class GenerateBarcodeApi
      *
      * @param  string $value QR code text to convert into the QR code barcode (required)
      *
-     * @throws \barcode_api_client\ApiException on non-2xx response
+     * @throws \barcode-api-client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
@@ -875,7 +875,7 @@ class GenerateBarcodeApi
      *
      * @param  string $value UPC-A barcode value to generate from (required)
      *
-     * @throws \barcode_api_client\ApiException on non-2xx response
+     * @throws \barcode-api-client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -892,7 +892,7 @@ class GenerateBarcodeApi
      *
      * @param  string $value UPC-A barcode value to generate from (required)
      *
-     * @throws \barcode_api_client\ApiException on non-2xx response
+     * @throws \barcode-api-client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1137,7 +1137,7 @@ class GenerateBarcodeApi
      *
      * @param  string $value UPC-E barcode value to generate from (required)
      *
-     * @throws \barcode_api_client\ApiException on non-2xx response
+     * @throws \barcode-api-client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
@@ -1154,7 +1154,7 @@ class GenerateBarcodeApi
      *
      * @param  string $value UPC-E barcode value to generate from (required)
      *
-     * @throws \barcode_api_client\ApiException on non-2xx response
+     * @throws \barcode-api-client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */

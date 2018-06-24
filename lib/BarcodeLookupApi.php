@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  barcode_api_client
+ * @package  barcode-api-client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace barcode_api_client\barcode_api_client;
+namespace barcode-api-client\barcode-api-client;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use barcode_api_client\ApiException;
-use barcode_api_client\Configuration;
-use barcode_api_client\HeaderSelector;
-use barcode_api_client\ObjectSerializer;
+use barcode-api-client\ApiException;
+use barcode-api-client\Configuration;
+use barcode-api-client\HeaderSelector;
+use barcode-api-client\ObjectSerializer;
 
 /**
  * BarcodeLookupApi Class Doc Comment
  *
  * @category Class
- * @package  barcode_api_client
+ * @package  barcode-api-client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -89,9 +89,9 @@ class BarcodeLookupApi
      *
      * @param  string $value Barcode value (required)
      *
-     * @throws \barcode_api_client\ApiException on non-2xx response
+     * @throws \barcode-api-client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \barcode_api_client\barcode_api_client\BarcodeLookupResponse
+     * @return \barcode-api-client\barcode-api-client\BarcodeLookupResponse
      */
     public function barcodeLookupEanLookup($value)
     {
@@ -106,13 +106,13 @@ class BarcodeLookupApi
      *
      * @param  string $value Barcode value (required)
      *
-     * @throws \barcode_api_client\ApiException on non-2xx response
+     * @throws \barcode-api-client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \barcode_api_client\barcode_api_client\BarcodeLookupResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \barcode-api-client\barcode-api-client\BarcodeLookupResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function barcodeLookupEanLookupWithHttpInfo($value)
     {
-        $returnType = '\barcode_api_client\barcode_api_client\BarcodeLookupResponse';
+        $returnType = '\barcode-api-client\barcode-api-client\BarcodeLookupResponse';
         $request = $this->barcodeLookupEanLookupRequest($value);
 
         try {
@@ -164,7 +164,7 @@ class BarcodeLookupApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\barcode_api_client\barcode_api_client\BarcodeLookupResponse',
+                        '\barcode-api-client\barcode-api-client\BarcodeLookupResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -206,7 +206,7 @@ class BarcodeLookupApi
      */
     public function barcodeLookupEanLookupAsyncWithHttpInfo($value)
     {
-        $returnType = '\barcode_api_client\barcode_api_client\BarcodeLookupResponse';
+        $returnType = '\barcode-api-client\barcode-api-client\BarcodeLookupResponse';
         $request = $this->barcodeLookupEanLookupRequest($value);
 
         return $this->client

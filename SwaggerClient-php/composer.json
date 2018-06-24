@@ -1,6 +1,6 @@
 {
-    "name": "cloudmersive/barcode_api_client",
-    "version": "1.2.1",
+    "name": "cloudmersive/barcode-api-client",
+    "version": "1.2.3",
     "description": "",
     "keywords": [
         "swagger",
@@ -29,9 +29,9 @@
         "friendsofphp/php-cs-fixer": "~1.12"
     },
     "autoload": {
-        "psr-4": { "barcode_api_client\\" : "lib/" }
+        "psr-4": { "barcode-api-client\\" : "lib/" }
     },
     "autoload-dev": {
-        "psr-4": { "barcode_api_client\\" : "test/" }
+        "psr-4": { "barcode-api-client\\" : "test/" }
     }
 }

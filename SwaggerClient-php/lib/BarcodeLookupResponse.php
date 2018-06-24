@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  barcode_api_client
+ * @package  barcode-api-client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace barcode_api_client\barcode_api_client;
+namespace barcode-api-client\barcode-api-client;
 
 use \ArrayAccess;
-use \barcode_api_client\ObjectSerializer;
+use \barcode-api-client\ObjectSerializer;
 
 /**
  * BarcodeLookupResponse Class Doc Comment
  *
  * @category Class
- * @package  barcode_api_client
+ * @package  barcode-api-client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -58,7 +58,7 @@ class BarcodeLookupResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'successful' => 'bool',
-        'matches' => '\barcode_api_client\barcode_api_client\ProductMatch[]'
+        'matches' => '\barcode-api-client\barcode-api-client\ProductMatch[]'
     ];
 
     /**
@@ -238,7 +238,7 @@ class BarcodeLookupResponse implements ModelInterface, ArrayAccess
     /**
      * Gets matches
      *
-     * @return \barcode_api_client\barcode_api_client\ProductMatch[]
+     * @return \barcode-api-client\barcode-api-client\ProductMatch[]
      */
     public function getMatches()
     {
@@ -248,7 +248,7 @@ class BarcodeLookupResponse implements ModelInterface, ArrayAccess
     /**
      * Sets matches
      *
-     * @param \barcode_api_client\barcode_api_client\ProductMatch[] $matches matches
+     * @param \barcode-api-client\barcode-api-client\ProductMatch[] $matches matches
      *
      * @return $this
      */
