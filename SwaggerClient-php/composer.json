@@ -1,5 +1,5 @@
 {
-    "name": "cloudmersive/Cloudmersive.APIClient.PHP.Barcode",
+    "name": "cloudmersive/cloudmersive/barcode_api_client",
     "version": "1.1.6",
     "description": "",
     "keywords": [

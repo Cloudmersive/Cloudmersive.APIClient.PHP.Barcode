@@ -21,11 +21,11 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
   "repositories": [
     {
       "type": "git",
-      "url": "https://github.com/cloudmersive/Cloudmersive.APIClient.PHP.Barcode.git"
+      "url": "https://github.com/cloudmersive/cloudmersive/barcode_api_client.git"
     }
   ],
   "require": {
-    "cloudmersive/Cloudmersive.APIClient.PHP.Barcode": "*@dev"
+    "cloudmersive/cloudmersive/barcode_api_client": "*@dev"
   }
 }
 ```
