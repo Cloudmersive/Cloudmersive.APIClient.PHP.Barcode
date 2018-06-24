@@ -1,7 +1,5 @@
 ﻿{
-"projectName" : "cloudmersive-barcode-api-client",
-  "packageName" : "cloudmersive-barcode-api-client",
-  "artifactVersion": "1.2.3",
+  "artifactVersion": "1.2.4",
   "invokerPackage": "barcode-api-client",
   "modelPackage": "barcode-api-client",
   "apiPackage": "barcode-api-client",
