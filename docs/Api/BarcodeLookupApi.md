@@ -1,4 +1,4 @@
-# Swagger\Client\BarcodeLookupApi
+# barcode_api_client\BarcodeLookupApi
 
 All URIs are relative to *https://api.cloudmersive.com*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **barcodeLookupEanLookup**
-> \Swagger\Client\Model\BarcodeLookupResponse barcodeLookupEanLookup($value)
+> \barcode_api_client\barcode_api_client\BarcodeLookupResponse barcodeLookupEanLookup($value)
 
 Lookup a barcode value and return product data
 
@@ -18,11 +18,11 @@ Lookup a barcode value and return product data
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: Apikey
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+$config = barcode_api_client\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+// $config = barcode_api_client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
 
-$apiInstance = new Swagger\Client\Api\BarcodeLookupApi(
+$apiInstance = new barcode_api_client\Api\BarcodeLookupApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\BarcodeLookupResponse**](../Model/BarcodeLookupResponse.md)
+[**\barcode_api_client\barcode_api_client\BarcodeLookupResponse**](../Model/BarcodeLookupResponse.md)
 
 ### Authorization
 
