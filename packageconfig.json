@@ -2,5 +2,8 @@
 "projectName" : "cloudmersive_barcode_api_client",
   "packageName" : "cloudmersive_barcode_api_client",
   "packageVersion": "1.1.4",
-  "composerVendorName": "cloudmersive"
+  "composerVendorName": "cloudmersive",
+  "invokerPackage": "barcode_api_client",
+  "modelPackage": "barcode_api_client",
+  "apiPackage": "barcode_api_client"
 }  
