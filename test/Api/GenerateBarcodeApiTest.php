@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  barcode-api-client-invoke
+ * @package  barcode_api_client_invoke
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,17 +26,17 @@
  * Please update the test case below to test the endpoint.
  */
 
-namespace barcode-api-client-invoke;
+namespace barcode_api_client_invoke;
 
-use \barcode-api-client-invoke\Configuration;
-use \barcode-api-client-invoke\ApiException;
-use \barcode-api-client-invoke\ObjectSerializer;
+use \barcode_api_client_invoke\Configuration;
+use \barcode_api_client_invoke\ApiException;
+use \barcode_api_client_invoke\ObjectSerializer;
 
 /**
  * GenerateBarcodeApiTest Class Doc Comment
  *
  * @category Class
- * @package  barcode-api-client-invoke
+ * @package  barcode_api_client_invoke
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */

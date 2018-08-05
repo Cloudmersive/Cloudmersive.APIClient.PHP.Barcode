@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  barcode-api-client-invoke
+ * @package  barcode_api_client_invoke
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,14 +26,14 @@
  * Do not edit the class manually.
  */
 
-namespace barcode-api-client-invoke;
+namespace barcode_api_client_invoke;
 
 /**
  * Configuration Class Doc Comment
  * PHP version 5
  *
  * @category Class
- * @package  barcode-api-client-invoke
+ * @package  barcode_api_client_invoke
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -88,7 +88,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = 'Swagger-Codegen/1.3.2/php';
+    protected $userAgent = 'Swagger-Codegen/1.3.5/php';
 
     /**
      * Debug switch (default set to false)
@@ -393,11 +393,11 @@ class Configuration
      */
     public static function toDebugReport()
     {
-        $report  = 'PHP SDK (barcode-api-client-invoke) Debug Report:' . PHP_EOL;
+        $report  = 'PHP SDK (barcode_api_client_invoke) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
         $report .= '    OpenAPI Spec Version: v1' . PHP_EOL;
-        $report .= '    SDK Package Version: 1.3.2' . PHP_EOL;
+        $report .= '    SDK Package Version: 1.3.5' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;

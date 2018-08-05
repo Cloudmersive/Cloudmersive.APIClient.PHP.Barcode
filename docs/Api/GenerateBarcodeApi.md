@@ -1,4 +1,4 @@
-# barcode-api-client-invoke\GenerateBarcodeApi
+# barcode_api_client_invoke\GenerateBarcodeApi
 
 All URIs are relative to *https://api.cloudmersive.com*
 
@@ -22,11 +22,11 @@ Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: Apikey
-$config = barcode-api-client-invoke\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+$config = barcode_api_client_invoke\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = barcode-api-client-invoke\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+// $config = barcode_api_client_invoke\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
 
-$apiInstance = new barcode-api-client-invoke\Api\GenerateBarcodeApi(
+$apiInstance = new barcode_api_client_invoke\Api\GenerateBarcodeApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -75,11 +75,11 @@ Validates and generate a EAN-8 barcode as a PNG file, a type of 1D barcode
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: Apikey
-$config = barcode-api-client-invoke\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+$config = barcode_api_client_invoke\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = barcode-api-client-invoke\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+// $config = barcode_api_client_invoke\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
 
-$apiInstance = new barcode-api-client-invoke\Api\GenerateBarcodeApi(
+$apiInstance = new barcode_api_client_invoke\Api\GenerateBarcodeApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -128,11 +128,11 @@ Generate a QR code barcode as a PNG file, a type of 2D barcode which can encode 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: Apikey
-$config = barcode-api-client-invoke\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+$config = barcode_api_client_invoke\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = barcode-api-client-invoke\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+// $config = barcode_api_client_invoke\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
 
-$apiInstance = new barcode-api-client-invoke\Api\GenerateBarcodeApi(
+$apiInstance = new barcode_api_client_invoke\Api\GenerateBarcodeApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -181,11 +181,11 @@ Validate and generate a UPC-A barcode as a PNG file, a type of 1D barcode
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: Apikey
-$config = barcode-api-client-invoke\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+$config = barcode_api_client_invoke\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = barcode-api-client-invoke\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+// $config = barcode_api_client_invoke\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
 
-$apiInstance = new barcode-api-client-invoke\Api\GenerateBarcodeApi(
+$apiInstance = new barcode_api_client_invoke\Api\GenerateBarcodeApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -234,11 +234,11 @@ Validates and generate a UPC-E barcode as a PNG file, a type of 1D barcode
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: Apikey
-$config = barcode-api-client-invoke\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+$config = barcode_api_client_invoke\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = barcode-api-client-invoke\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+// $config = barcode_api_client_invoke\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
 
-$apiInstance = new barcode-api-client-invoke\Api\GenerateBarcodeApi(
+$apiInstance = new barcode_api_client_invoke\Api\GenerateBarcodeApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
