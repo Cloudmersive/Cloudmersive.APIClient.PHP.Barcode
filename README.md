@@ -4,7 +4,7 @@ Barcode APIs let you generate barcode images, and recognize values from images o
 [Cloudmersive Barcode API](https://www.cloudmersive.com/barcode-api) provides advanced barcode generation, lookup and recognition capabilities.
 
 - API version: v1
-- Package version: 1.4.3
+- Package version: 1.4.4
 
 
 ## Requirements
@@ -87,6 +87,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BarcodeLookupApi* | [**barcodeLookupEanLookup**](docs/Api/BarcodeLookupApi.md#barcodelookupeanlookup) | **POST** /barcode/lookup/ean | Lookup a barcode value and return product data
+*BarcodeScanApi* | [**barcodeScanImage**](docs/Api/BarcodeScanApi.md#barcodescanimage) | **POST** /barcode/scan/image | Scan an image for a barcode and turn the result.  Supported barcode types include AZTEC, CODABAR, CODE_39, CODE_93, CODE_128, DATA_MATRIX, EAN_8, EAN_13, ITF, MAXICODE, PDF_417, QR_CODE, RSS_14, RSS_EXPANDED, UPC_A, UPC_E, All_1D, UPC_EAN_EXTENSION, MSI, PLESSEY, IMB
 *GenerateBarcodeApi* | [**generateBarcodeEAN13**](docs/Api/GenerateBarcodeApi.md#generatebarcodeean13) | **POST** /barcode/generate/ean-13 | Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
 *GenerateBarcodeApi* | [**generateBarcodeEAN8**](docs/Api/GenerateBarcodeApi.md#generatebarcodeean8) | **POST** /barcode/generate/ean-8 | Validates and generate a EAN-8 barcode as a PNG file, a type of 1D barcode
 *GenerateBarcodeApi* | [**generateBarcodeQRCode**](docs/Api/GenerateBarcodeApi.md#generatebarcodeqrcode) | **POST** /barcode/generate/qrcode | Generate a QR code barcode as a PNG file, a type of 2D barcode which can encode free-form text information
@@ -97,6 +98,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [BarcodeLookupResponse](docs/Model/BarcodeLookupResponse.md)
+ - [BarcodeScanResult](docs/Model/BarcodeScanResult.md)
  - [ProductMatch](docs/Model/ProductMatch.md)
 
 
