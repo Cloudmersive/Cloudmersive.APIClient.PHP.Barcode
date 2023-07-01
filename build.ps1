@@ -13,5 +13,7 @@ Remove-Item –path ./cloudmersive_barcode_api_client –recurse
 (Get-Content ./composer.json).replace('Swagger and contributors', 'Cloudmersive') | Set-Content ./composer.json
 (Get-Content ./composer.json).replace('https://github.com/swagger-api/swagger-codegen', 'https://cloudmersive.com') | Set-Content ./composer.json
 (Get-Content ./composer.json).replace('http://swagger.io', 'https://cloudmersive.com') | Set-Content ./composer.json
+(Get-Content ./composer.json).replace('^6.2', '^7.5') | Set-Content ./composer.json
+(Get-Content ./composer.json).replace('5.5', '7.2.5') | Set-Content ./composer.json
 
 & php C:\ProgramData\ComposerSetup\bin\composer.phar install
