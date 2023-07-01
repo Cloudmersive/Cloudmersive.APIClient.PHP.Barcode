@@ -33,7 +33,7 @@ namespace Swagger\Client;
  * ProductMatchTest Class Doc Comment
  *
  * @category    Class
- * @description ProductMatch
+ * @description Matching product for the input barcode
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen

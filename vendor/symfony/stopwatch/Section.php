@@ -21,10 +21,10 @@ class Section
     /**
      * @var StopwatchEvent[]
      */
-    private $events = array();
+    private $events = [];
 
     /**
-     * @var null|float
+     * @var float|null
      */
     private $origin;
 
@@ -41,15 +41,15 @@ class Section
     /**
      * @var Section[]
      */
-    private $children = array();
+    private $children = [];
 
     /**
      * @param float|null $origin        Set the origin of the events in this section, use null to set their origin to their start time
      * @param bool       $morePrecision If true, time is stored as float to keep the original microsecond precision
      */
-    public function __construct($origin = null, $morePrecision = false)
+    public function __construct(float $origin = null, bool $morePrecision = false)
     {
-        $this->origin = is_numeric($origin) ? $origin : null;
+        $this->origin = $origin;
         $this->morePrecision = $morePrecision;
     }
 
@@ -62,11 +62,17 @@ class Section
      */
     public function get($id)
     {
+        if (null === $id) {
+            @trigger_error(sprintf('Passing "null" as the first argument of the "%s()" method is deprecated since Symfony 4.4, pass a valid child section identifier instead.', __METHOD__), E_USER_DEPRECATED);
+        }
+
         foreach ($this->children as $child) {
             if ($id === $child->getId()) {
                 return $child;
             }
         }
+
+        return null;
     }
 
     /**
@@ -78,7 +84,7 @@ class Section
      */
     public function open($id)
     {
-        if (null === $session = $this->get($id)) {
+        if (null === $id || null === $session = $this->get($id)) {
             $session = $this->children[] = new self(microtime(true) * 1000, $this->morePrecision);
         }
 
@@ -110,8 +116,8 @@ class Section
     /**
      * Starts an event.
      *
-     * @param string $name     The event name
-     * @param string $category The event category
+     * @param string      $name     The event name
+     * @param string|null $category The event category
      *
      * @return StopwatchEvent The event
      */

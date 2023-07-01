@@ -74,7 +74,7 @@ class BarcodeLookupApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for barcodeLookupEanLookup
      *
-     * Lookup a barcode value and return product data.
+     * Lookup EAN barcode value, return product data.
      *
      */
     public function testBarcodeLookupEanLookup()

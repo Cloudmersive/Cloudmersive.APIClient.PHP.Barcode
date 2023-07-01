@@ -90,13 +90,13 @@ class GenerateBarcodeApi
     /**
      * Operation generateBarcodeEAN13
      *
-     * Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
+     * Generate a EAN-13 code barcode as PNG file
      *
      * @param  string $value Barcode value to generate from (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \SplFileObject
+     * @return string
      */
     public function generateBarcodeEAN13($value)
     {
@@ -107,17 +107,17 @@ class GenerateBarcodeApi
     /**
      * Operation generateBarcodeEAN13WithHttpInfo
      *
-     * Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
+     * Generate a EAN-13 code barcode as PNG file
      *
      * @param  string $value Barcode value to generate from (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
     public function generateBarcodeEAN13WithHttpInfo($value)
     {
-        $returnType = '\SplFileObject';
+        $returnType = 'string';
         $request = $this->generateBarcodeEAN13Request($value);
 
         try {
@@ -169,7 +169,7 @@ class GenerateBarcodeApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SplFileObject',
+                        'string',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -182,7 +182,7 @@ class GenerateBarcodeApi
     /**
      * Operation generateBarcodeEAN13Async
      *
-     * Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
+     * Generate a EAN-13 code barcode as PNG file
      *
      * @param  string $value Barcode value to generate from (required)
      *
@@ -202,7 +202,7 @@ class GenerateBarcodeApi
     /**
      * Operation generateBarcodeEAN13AsyncWithHttpInfo
      *
-     * Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
+     * Generate a EAN-13 code barcode as PNG file
      *
      * @param  string $value Barcode value to generate from (required)
      *
@@ -211,7 +211,7 @@ class GenerateBarcodeApi
      */
     public function generateBarcodeEAN13AsyncWithHttpInfo($value)
     {
-        $returnType = '\SplFileObject';
+        $returnType = 'string';
         $request = $this->generateBarcodeEAN13Request($value);
 
         return $this->client
@@ -285,11 +285,11 @@ class GenerateBarcodeApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['image/png']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['image/png'],
+                ['application/octet-stream'],
                 ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded']
             );
         }
@@ -352,13 +352,13 @@ class GenerateBarcodeApi
     /**
      * Operation generateBarcodeEAN8
      *
-     * Validates and generate a EAN-8 barcode as a PNG file, a type of 1D barcode
+     * Generate a EAN-8 code barcode as PNG file
      *
      * @param  string $value Barcode value to generate from (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \SplFileObject
+     * @return string
      */
     public function generateBarcodeEAN8($value)
     {
@@ -369,17 +369,17 @@ class GenerateBarcodeApi
     /**
      * Operation generateBarcodeEAN8WithHttpInfo
      *
-     * Validates and generate a EAN-8 barcode as a PNG file, a type of 1D barcode
+     * Generate a EAN-8 code barcode as PNG file
      *
      * @param  string $value Barcode value to generate from (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
     public function generateBarcodeEAN8WithHttpInfo($value)
     {
-        $returnType = '\SplFileObject';
+        $returnType = 'string';
         $request = $this->generateBarcodeEAN8Request($value);
 
         try {
@@ -431,7 +431,7 @@ class GenerateBarcodeApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SplFileObject',
+                        'string',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -444,7 +444,7 @@ class GenerateBarcodeApi
     /**
      * Operation generateBarcodeEAN8Async
      *
-     * Validates and generate a EAN-8 barcode as a PNG file, a type of 1D barcode
+     * Generate a EAN-8 code barcode as PNG file
      *
      * @param  string $value Barcode value to generate from (required)
      *
@@ -464,7 +464,7 @@ class GenerateBarcodeApi
     /**
      * Operation generateBarcodeEAN8AsyncWithHttpInfo
      *
-     * Validates and generate a EAN-8 barcode as a PNG file, a type of 1D barcode
+     * Generate a EAN-8 code barcode as PNG file
      *
      * @param  string $value Barcode value to generate from (required)
      *
@@ -473,7 +473,7 @@ class GenerateBarcodeApi
      */
     public function generateBarcodeEAN8AsyncWithHttpInfo($value)
     {
-        $returnType = '\SplFileObject';
+        $returnType = 'string';
         $request = $this->generateBarcodeEAN8Request($value);
 
         return $this->client
@@ -547,11 +547,11 @@ class GenerateBarcodeApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['image/png']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['image/png'],
+                ['application/octet-stream'],
                 ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded']
             );
         }
@@ -614,13 +614,13 @@ class GenerateBarcodeApi
     /**
      * Operation generateBarcodeQRCode
      *
-     * Generate a QR code barcode as a PNG file, a type of 2D barcode which can encode free-form text information
+     * Generate a QR code barcode as PNG file
      *
      * @param  string $value QR code text to convert into the QR code barcode (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \SplFileObject
+     * @return string
      */
     public function generateBarcodeQRCode($value)
     {
@@ -631,17 +631,17 @@ class GenerateBarcodeApi
     /**
      * Operation generateBarcodeQRCodeWithHttpInfo
      *
-     * Generate a QR code barcode as a PNG file, a type of 2D barcode which can encode free-form text information
+     * Generate a QR code barcode as PNG file
      *
      * @param  string $value QR code text to convert into the QR code barcode (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
     public function generateBarcodeQRCodeWithHttpInfo($value)
     {
-        $returnType = '\SplFileObject';
+        $returnType = 'string';
         $request = $this->generateBarcodeQRCodeRequest($value);
 
         try {
@@ -693,7 +693,7 @@ class GenerateBarcodeApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SplFileObject',
+                        'string',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -706,7 +706,7 @@ class GenerateBarcodeApi
     /**
      * Operation generateBarcodeQRCodeAsync
      *
-     * Generate a QR code barcode as a PNG file, a type of 2D barcode which can encode free-form text information
+     * Generate a QR code barcode as PNG file
      *
      * @param  string $value QR code text to convert into the QR code barcode (required)
      *
@@ -726,7 +726,7 @@ class GenerateBarcodeApi
     /**
      * Operation generateBarcodeQRCodeAsyncWithHttpInfo
      *
-     * Generate a QR code barcode as a PNG file, a type of 2D barcode which can encode free-form text information
+     * Generate a QR code barcode as PNG file
      *
      * @param  string $value QR code text to convert into the QR code barcode (required)
      *
@@ -735,7 +735,7 @@ class GenerateBarcodeApi
      */
     public function generateBarcodeQRCodeAsyncWithHttpInfo($value)
     {
-        $returnType = '\SplFileObject';
+        $returnType = 'string';
         $request = $this->generateBarcodeQRCodeRequest($value);
 
         return $this->client
@@ -809,11 +809,11 @@ class GenerateBarcodeApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['image/png']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['image/png'],
+                ['application/octet-stream'],
                 ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded']
             );
         }
@@ -876,13 +876,13 @@ class GenerateBarcodeApi
     /**
      * Operation generateBarcodeUPCA
      *
-     * Validate and generate a UPC-A barcode as a PNG file, a type of 1D barcode
+     * Generate a UPC-A code barcode as PNG file
      *
      * @param  string $value UPC-A barcode value to generate from (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \SplFileObject
+     * @return string
      */
     public function generateBarcodeUPCA($value)
     {
@@ -893,17 +893,17 @@ class GenerateBarcodeApi
     /**
      * Operation generateBarcodeUPCAWithHttpInfo
      *
-     * Validate and generate a UPC-A barcode as a PNG file, a type of 1D barcode
+     * Generate a UPC-A code barcode as PNG file
      *
      * @param  string $value UPC-A barcode value to generate from (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
     public function generateBarcodeUPCAWithHttpInfo($value)
     {
-        $returnType = '\SplFileObject';
+        $returnType = 'string';
         $request = $this->generateBarcodeUPCARequest($value);
 
         try {
@@ -955,7 +955,7 @@ class GenerateBarcodeApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SplFileObject',
+                        'string',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -968,7 +968,7 @@ class GenerateBarcodeApi
     /**
      * Operation generateBarcodeUPCAAsync
      *
-     * Validate and generate a UPC-A barcode as a PNG file, a type of 1D barcode
+     * Generate a UPC-A code barcode as PNG file
      *
      * @param  string $value UPC-A barcode value to generate from (required)
      *
@@ -988,7 +988,7 @@ class GenerateBarcodeApi
     /**
      * Operation generateBarcodeUPCAAsyncWithHttpInfo
      *
-     * Validate and generate a UPC-A barcode as a PNG file, a type of 1D barcode
+     * Generate a UPC-A code barcode as PNG file
      *
      * @param  string $value UPC-A barcode value to generate from (required)
      *
@@ -997,7 +997,7 @@ class GenerateBarcodeApi
      */
     public function generateBarcodeUPCAAsyncWithHttpInfo($value)
     {
-        $returnType = '\SplFileObject';
+        $returnType = 'string';
         $request = $this->generateBarcodeUPCARequest($value);
 
         return $this->client
@@ -1071,11 +1071,11 @@ class GenerateBarcodeApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['image/png']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['image/png'],
+                ['application/octet-stream'],
                 ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded']
             );
         }
@@ -1138,13 +1138,13 @@ class GenerateBarcodeApi
     /**
      * Operation generateBarcodeUPCE
      *
-     * Validates and generate a UPC-E barcode as a PNG file, a type of 1D barcode
+     * Generate a UPC-E code barcode as PNG file
      *
      * @param  string $value UPC-E barcode value to generate from (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \SplFileObject
+     * @return string
      */
     public function generateBarcodeUPCE($value)
     {
@@ -1155,17 +1155,17 @@ class GenerateBarcodeApi
     /**
      * Operation generateBarcodeUPCEWithHttpInfo
      *
-     * Validates and generate a UPC-E barcode as a PNG file, a type of 1D barcode
+     * Generate a UPC-E code barcode as PNG file
      *
      * @param  string $value UPC-E barcode value to generate from (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
     public function generateBarcodeUPCEWithHttpInfo($value)
     {
-        $returnType = '\SplFileObject';
+        $returnType = 'string';
         $request = $this->generateBarcodeUPCERequest($value);
 
         try {
@@ -1217,7 +1217,7 @@ class GenerateBarcodeApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SplFileObject',
+                        'string',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1230,7 +1230,7 @@ class GenerateBarcodeApi
     /**
      * Operation generateBarcodeUPCEAsync
      *
-     * Validates and generate a UPC-E barcode as a PNG file, a type of 1D barcode
+     * Generate a UPC-E code barcode as PNG file
      *
      * @param  string $value UPC-E barcode value to generate from (required)
      *
@@ -1250,7 +1250,7 @@ class GenerateBarcodeApi
     /**
      * Operation generateBarcodeUPCEAsyncWithHttpInfo
      *
-     * Validates and generate a UPC-E barcode as a PNG file, a type of 1D barcode
+     * Generate a UPC-E code barcode as PNG file
      *
      * @param  string $value UPC-E barcode value to generate from (required)
      *
@@ -1259,7 +1259,7 @@ class GenerateBarcodeApi
      */
     public function generateBarcodeUPCEAsyncWithHttpInfo($value)
     {
-        $returnType = '\SplFileObject';
+        $returnType = 'string';
         $request = $this->generateBarcodeUPCERequest($value);
 
         return $this->client
@@ -1333,11 +1333,11 @@ class GenerateBarcodeApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['image/png']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['image/png'],
+                ['application/octet-stream'],
                 ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded']
             );
         }

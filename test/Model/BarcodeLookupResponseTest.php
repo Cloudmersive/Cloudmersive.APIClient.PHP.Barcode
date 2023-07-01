@@ -33,7 +33,7 @@ namespace Swagger\Client;
  * BarcodeLookupResponseTest Class Doc Comment
  *
  * @category    Class
- * @description BarcodeLookupResponse
+ * @description Result of performing a barcode lookup
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen

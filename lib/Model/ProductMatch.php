@@ -36,6 +36,7 @@ use \Swagger\Client\ObjectSerializer;
  * ProductMatch Class Doc Comment
  *
  * @category Class
+ * @description Matching product for the input barcode
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -223,7 +224,7 @@ class ProductMatch implements ModelInterface, ArrayAccess
     /**
      * Sets ean
      *
-     * @param string $ean ean
+     * @param string $ean EAN code for the product
      *
      * @return $this
      */
@@ -247,7 +248,7 @@ class ProductMatch implements ModelInterface, ArrayAccess
     /**
      * Sets title
      *
-     * @param string $title title
+     * @param string $title Title of the product
      *
      * @return $this
      */

@@ -36,6 +36,7 @@ use \Swagger\Client\ObjectSerializer;
  * BarcodeLookupResponse Class Doc Comment
  *
  * @category Class
+ * @description Result of performing a barcode lookup
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -223,7 +224,7 @@ class BarcodeLookupResponse implements ModelInterface, ArrayAccess
     /**
      * Sets successful
      *
-     * @param bool $successful successful
+     * @param bool $successful True if operation was successful, false otherwise
      *
      * @return $this
      */
@@ -247,7 +248,7 @@ class BarcodeLookupResponse implements ModelInterface, ArrayAccess
     /**
      * Sets matches
      *
-     * @param \Swagger\Client\Model\ProductMatch[] $matches matches
+     * @param \Swagger\Client\Model\ProductMatch[] $matches Resulting product matches for the input barcode
      *
      * @return $this
      */

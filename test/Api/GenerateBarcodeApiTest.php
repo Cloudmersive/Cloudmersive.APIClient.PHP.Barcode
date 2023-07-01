@@ -74,7 +74,7 @@ class GenerateBarcodeApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for generateBarcodeEAN13
      *
-     * Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode.
+     * Generate a EAN-13 code barcode as PNG file.
      *
      */
     public function testGenerateBarcodeEAN13()
@@ -84,7 +84,7 @@ class GenerateBarcodeApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for generateBarcodeEAN8
      *
-     * Validates and generate a EAN-8 barcode as a PNG file, a type of 1D barcode.
+     * Generate a EAN-8 code barcode as PNG file.
      *
      */
     public function testGenerateBarcodeEAN8()
@@ -94,7 +94,7 @@ class GenerateBarcodeApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for generateBarcodeQRCode
      *
-     * Generate a QR code barcode as a PNG file, a type of 2D barcode which can encode free-form text information.
+     * Generate a QR code barcode as PNG file.
      *
      */
     public function testGenerateBarcodeQRCode()
@@ -104,7 +104,7 @@ class GenerateBarcodeApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for generateBarcodeUPCA
      *
-     * Validate and generate a UPC-A barcode as a PNG file, a type of 1D barcode.
+     * Generate a UPC-A code barcode as PNG file.
      *
      */
     public function testGenerateBarcodeUPCA()
@@ -114,7 +114,7 @@ class GenerateBarcodeApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for generateBarcodeUPCE
      *
-     * Validates and generate a UPC-E barcode as a PNG file, a type of 1D barcode.
+     * Generate a UPC-E code barcode as PNG file.
      *
      */
     public function testGenerateBarcodeUPCE()

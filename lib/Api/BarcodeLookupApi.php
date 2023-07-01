@@ -90,7 +90,7 @@ class BarcodeLookupApi
     /**
      * Operation barcodeLookupEanLookup
      *
-     * Lookup a barcode value and return product data
+     * Lookup EAN barcode value, return product data
      *
      * @param  string $value Barcode value (required)
      *
@@ -107,7 +107,7 @@ class BarcodeLookupApi
     /**
      * Operation barcodeLookupEanLookupWithHttpInfo
      *
-     * Lookup a barcode value and return product data
+     * Lookup EAN barcode value, return product data
      *
      * @param  string $value Barcode value (required)
      *
@@ -182,7 +182,7 @@ class BarcodeLookupApi
     /**
      * Operation barcodeLookupEanLookupAsync
      *
-     * Lookup a barcode value and return product data
+     * Lookup EAN barcode value, return product data
      *
      * @param  string $value Barcode value (required)
      *
@@ -202,7 +202,7 @@ class BarcodeLookupApi
     /**
      * Operation barcodeLookupEanLookupAsyncWithHttpInfo
      *
-     * Lookup a barcode value and return product data
+     * Lookup EAN barcode value, return product data
      *
      * @param  string $value Barcode value (required)
      *
