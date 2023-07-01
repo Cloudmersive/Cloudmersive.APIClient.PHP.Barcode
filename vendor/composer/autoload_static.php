@@ -4,15 +4,14 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInite58957d5e7ec5145b090d2f79da800bb
+class ComposerStaticInit39937d89019297b1df9cedf5223af2b1
 {
     public static $files = array (
+        'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
+        '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
-        'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
-        '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
-        '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
@@ -35,7 +34,6 @@ class ComposerStaticInite58957d5e7ec5145b090d2f79da800bb
             'Symfony\\Polyfill\\Php80\\' => 23,
             'Symfony\\Polyfill\\Php73\\' => 23,
             'Symfony\\Polyfill\\Php72\\' => 23,
-            'Symfony\\Polyfill\\Php70\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Intl\\Normalizer\\' => 33,
             'Symfony\\Polyfill\\Intl\\Idn\\' => 26,
@@ -57,6 +55,7 @@ class ComposerStaticInite58957d5e7ec5145b090d2f79da800bb
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
+            'Psr\\Cache\\' => 10,
             'Prophecy\\' => 9,
             'PhpCsFixer\\' => 11,
         ),
@@ -69,6 +68,7 @@ class ComposerStaticInite58957d5e7ec5145b090d2f79da800bb
         'D' => 
         array (
             'Doctrine\\Instantiator\\' => 22,
+            'Doctrine\\Deprecations\\' => 22,
             'Doctrine\\Common\\Lexer\\' => 22,
             'Doctrine\\Common\\Annotations\\' => 28,
         ),
@@ -76,6 +76,7 @@ class ComposerStaticInite58957d5e7ec5145b090d2f79da800bb
         array (
             'Composer\\XdebugHandler\\' => 23,
             'Composer\\Semver\\' => 16,
+            'Composer\\Pcre\\' => 14,
         ),
     );
 
@@ -101,10 +102,6 @@ class ComposerStaticInite58957d5e7ec5145b090d2f79da800bb
         'Symfony\\Polyfill\\Php72\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php72',
-        ),
-        'Symfony\\Polyfill\\Php70\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-php70',
         ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
@@ -179,6 +176,10 @@ class ComposerStaticInite58957d5e7ec5145b090d2f79da800bb
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
+        'Psr\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/cache/src',
+        ),
         'Prophecy\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy',
@@ -203,9 +204,13 @@ class ComposerStaticInite58957d5e7ec5145b090d2f79da800bb
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
         ),
+        'Doctrine\\Deprecations\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/deprecations/lib/Doctrine/Deprecations',
+        ),
         'Doctrine\\Common\\Lexer\\' => 
         array (
-            0 => __DIR__ . '/..' . '/doctrine/lexer/lib/Doctrine/Common/Lexer',
+            0 => __DIR__ . '/..' . '/doctrine/lexer/src',
         ),
         'Doctrine\\Common\\Annotations\\' => 
         array (
@@ -219,13 +224,14 @@ class ComposerStaticInite58957d5e7ec5145b090d2f79da800bb
         array (
             0 => __DIR__ . '/..' . '/composer/semver/src',
         ),
+        'Composer\\Pcre\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/composer/pcre/src',
+        ),
     );
 
     public static $classMap = array (
-        'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
-        'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
-        'DivisionByZeroError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/DivisionByZeroError.php',
-        'Error' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/Error.php',
+        'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
@@ -785,7 +791,6 @@ class ComposerStaticInite58957d5e7ec5145b090d2f79da800bb
         'PSR2_Sniffs_Methods_MethodDeclarationSniff' => __DIR__ . '/..' . '/squizlabs/php_codesniffer/CodeSniffer/Standards/PSR2/Sniffs/Methods/MethodDeclarationSniff.php',
         'PSR2_Sniffs_Namespaces_NamespaceDeclarationSniff' => __DIR__ . '/..' . '/squizlabs/php_codesniffer/CodeSniffer/Standards/PSR2/Sniffs/Namespaces/NamespaceDeclarationSniff.php',
         'PSR2_Sniffs_Namespaces_UseDeclarationSniff' => __DIR__ . '/..' . '/squizlabs/php_codesniffer/CodeSniffer/Standards/PSR2/Sniffs/Namespaces/UseDeclarationSniff.php',
-        'ParseError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ParseError.php',
         'PhpCsFixer\\Diff\\GeckoPackages\\DiffOutputBuilder\\ConfigurationException' => __DIR__ . '/..' . '/php-cs-fixer/diff/src/GeckoPackages/DiffOutputBuilder/ConfigurationException.php',
         'PhpCsFixer\\Diff\\GeckoPackages\\DiffOutputBuilder\\UnifiedDiffOutputBuilder' => __DIR__ . '/..' . '/php-cs-fixer/diff/src/GeckoPackages/DiffOutputBuilder/UnifiedDiffOutputBuilder.php',
         'PhpCsFixer\\Diff\\v1_4\\Chunk' => __DIR__ . '/..' . '/php-cs-fixer/diff/src/v1_4/Chunk.php',
@@ -826,6 +831,7 @@ class ComposerStaticInite58957d5e7ec5145b090d2f79da800bb
         'PhpCsFixer\\Diff\\v3_0\\Output\\UnifiedDiffOutputBuilder' => __DIR__ . '/..' . '/php-cs-fixer/diff/src/v3_0/Output/UnifiedDiffOutputBuilder.php',
         'PhpCsFixer\\Diff\\v3_0\\Parser' => __DIR__ . '/..' . '/php-cs-fixer/diff/src/v3_0/Parser.php',
         'PhpCsFixer\\Diff\\v3_0\\TimeEfficientLongestCommonSubsequenceCalculator' => __DIR__ . '/..' . '/php-cs-fixer/diff/src/v3_0/TimeEfficientLongestCommonSubsequenceCalculator.php',
+        'PhpCsFixer\\Tests\\InterimTestCase' => __DIR__ . '/..' . '/friendsofphp/php-cs-fixer/tests/TestCase.php',
         'PhpCsFixer\\Tests\\TestCase' => __DIR__ . '/..' . '/friendsofphp/php-cs-fixer/tests/TestCase.php',
         'PhpCsFixer\\Tests\\Test\\AbstractFixerTestCase' => __DIR__ . '/..' . '/friendsofphp/php-cs-fixer/tests/Test/AbstractFixerTestCase.php',
         'PhpCsFixer\\Tests\\Test\\AbstractIntegrationCaseFactory' => __DIR__ . '/..' . '/friendsofphp/php-cs-fixer/tests/Test/AbstractIntegrationCaseFactory.php',
@@ -836,6 +842,8 @@ class ComposerStaticInite58957d5e7ec5145b090d2f79da800bb
         'PhpCsFixer\\Tests\\Test\\IntegrationCaseFactoryInterface' => __DIR__ . '/..' . '/friendsofphp/php-cs-fixer/tests/Test/IntegrationCaseFactoryInterface.php',
         'PhpCsFixer\\Tests\\Test\\InternalIntegrationCaseFactory' => __DIR__ . '/..' . '/friendsofphp/php-cs-fixer/tests/Test/InternalIntegrationCaseFactory.php',
         'PhpCsFixer\\Tests\\Test\\IsIdenticalConstraint' => __DIR__ . '/..' . '/friendsofphp/php-cs-fixer/tests/Test/IsIdenticalConstraint.php',
+        'PhpCsFixer\\Tests\\Test\\TokensWithObservedTransformers' => __DIR__ . '/..' . '/friendsofphp/php-cs-fixer/tests/Test/TokensWithObservedTransformers.php',
+        'PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
         'SebastianBergmann\\Comparator\\ArrayComparator' => __DIR__ . '/..' . '/sebastian/comparator/src/ArrayComparator.php',
         'SebastianBergmann\\Comparator\\Comparator' => __DIR__ . '/..' . '/sebastian/comparator/src/Comparator.php',
         'SebastianBergmann\\Comparator\\ComparisonFailure' => __DIR__ . '/..' . '/sebastian/comparator/src/ComparisonFailure.php',
@@ -872,7 +880,6 @@ class ComposerStaticInite58957d5e7ec5145b090d2f79da800bb
         'SebastianBergmann\\RecursionContext\\Exception' => __DIR__ . '/..' . '/sebastian/recursion-context/src/Exception.php',
         'SebastianBergmann\\RecursionContext\\InvalidArgumentException' => __DIR__ . '/..' . '/sebastian/recursion-context/src/InvalidArgumentException.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
-        'SessionUpdateTimestampHandlerInterface' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/SessionUpdateTimestampHandlerInterface.php',
         'Squiz_Sniffs_Arrays_ArrayBracketSpacingSniff' => __DIR__ . '/..' . '/squizlabs/php_codesniffer/CodeSniffer/Standards/Squiz/Sniffs/Arrays/ArrayBracketSpacingSniff.php',
         'Squiz_Sniffs_Arrays_ArrayDeclarationSniff' => __DIR__ . '/..' . '/squizlabs/php_codesniffer/CodeSniffer/Standards/Squiz/Sniffs/Arrays/ArrayDeclarationSniff.php',
         'Squiz_Sniffs_CSS_ClassDefinitionClosingBraceSpaceSniff' => __DIR__ . '/..' . '/squizlabs/php_codesniffer/CodeSniffer/Standards/Squiz/Sniffs/CSS/ClassDefinitionClosingBraceSpaceSniff.php',
@@ -975,7 +982,6 @@ class ComposerStaticInite58957d5e7ec5145b090d2f79da800bb
         'Squiz_Sniffs_WhiteSpace_SuperfluousWhitespaceSniff' => __DIR__ . '/..' . '/squizlabs/php_codesniffer/CodeSniffer/Standards/Squiz/Sniffs/WhiteSpace/SuperfluousWhitespaceSniff.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
-        'TypeError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/TypeError.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
         'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
         'Zend_Sniffs_Debug_CodeAnalyzerSniff' => __DIR__ . '/..' . '/squizlabs/php_codesniffer/CodeSniffer/Standards/Zend/Sniffs/Debug/CodeAnalyzerSniff.php',
@@ -986,9 +992,9 @@ class ComposerStaticInite58957d5e7ec5145b090d2f79da800bb
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInite58957d5e7ec5145b090d2f79da800bb::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInite58957d5e7ec5145b090d2f79da800bb::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInite58957d5e7ec5145b090d2f79da800bb::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit39937d89019297b1df9cedf5223af2b1::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit39937d89019297b1df9cedf5223af2b1::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit39937d89019297b1df9cedf5223af2b1::$classMap;
 
         }, null, ClassLoader::class);
     }

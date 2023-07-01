@@ -4,7 +4,7 @@ Barcode APIs let you generate barcode images, and recognize values from images o
 [Cloudmersive Barcode API](https://www.cloudmersive.com/barcode-api) provides advanced barcode generation, lookup and recognition capabilities.
 
 - API version: v1
-- Package version: 2.0.2
+- Package version: 2.0.3
 
 
 ## Requirements

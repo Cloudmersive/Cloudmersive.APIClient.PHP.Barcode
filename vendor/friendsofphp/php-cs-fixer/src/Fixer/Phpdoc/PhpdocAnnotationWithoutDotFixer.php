@@ -25,6 +25,9 @@ use PhpCsFixer\Tokenizer\Tokens;
  */
 final class PhpdocAnnotationWithoutDotFixer extends AbstractFixer
 {
+    /**
+     * @var string[]
+     */
     private $tags = ['throws', 'return', 'param', 'internal', 'deprecated', 'var', 'type'];
 
     /**
@@ -47,7 +50,7 @@ function foo ($bar) {}
      * {@inheritdoc}
      *
      * Must run before PhpdocAlignFixer, PhpdocTypesFixer, PhpdocTypesOrderFixer.
-     * Must run after CommentToPhpdocFixer, PhpdocIndentFixer, PhpdocToCommentFixer.
+     * Must run after AlignMultilineCommentFixer, CommentToPhpdocFixer, PhpdocIndentFixer, PhpdocToCommentFixer.
      */
     public function getPriority()
     {
