@@ -1,6 +1,6 @@
 <?php
 /**
- * BarcodeQRResultItem
+ * BarcodeAdvancedResultItem
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * BarcodeQRResultItem Class Doc Comment
+ * BarcodeAdvancedResultItem Class Doc Comment
  *
  * @category Class
- * @description QR barcode instance
+ * @description Advanced barcode scan result instance
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class BarcodeQRResultItem implements ModelInterface, ArrayAccess
+class BarcodeAdvancedResultItem implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class BarcodeQRResultItem implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BarcodeQRResultItem';
+    protected static $swaggerModelName = 'BarcodeAdvancedResultItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,8 @@ class BarcodeQRResultItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'raw_text' => 'string'
+        'raw_text' => 'string',
+        'barcode_type' => 'string'
     ];
 
     /**
@@ -67,7 +68,8 @@ class BarcodeQRResultItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'raw_text' => null
+        'raw_text' => null,
+        'barcode_type' => null
     ];
 
     /**
@@ -97,7 +99,8 @@ class BarcodeQRResultItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'raw_text' => 'RawText'
+        'raw_text' => 'RawText',
+        'barcode_type' => 'BarcodeType'
     ];
 
     /**
@@ -106,7 +109,8 @@ class BarcodeQRResultItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'raw_text' => 'setRawText'
+        'raw_text' => 'setRawText',
+        'barcode_type' => 'setBarcodeType'
     ];
 
     /**
@@ -115,7 +119,8 @@ class BarcodeQRResultItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'raw_text' => 'getRawText'
+        'raw_text' => 'getRawText',
+        'barcode_type' => 'getBarcodeType'
     ];
 
     /**
@@ -179,6 +184,7 @@ class BarcodeQRResultItem implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['raw_text'] = isset($data['raw_text']) ? $data['raw_text'] : null;
+        $this->container['barcode_type'] = isset($data['barcode_type']) ? $data['barcode_type'] : null;
     }
 
     /**
@@ -225,6 +231,30 @@ class BarcodeQRResultItem implements ModelInterface, ArrayAccess
     public function setRawText($raw_text)
     {
         $this->container['raw_text'] = $raw_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets barcode_type
+     *
+     * @return string
+     */
+    public function getBarcodeType()
+    {
+        return $this->container['barcode_type'];
+    }
+
+    /**
+     * Sets barcode_type
+     *
+     * @param string $barcode_type Type of the barcode; supported barcode types include AZTEC, CODABAR, CODE_39, CODE_93, CODE_128, DATA_MATRIX, EAN_8, EAN_13, ITF, MAXICODE, PDF_417, QR_CODE, RSS_14, RSS_EXPANDED, UPC_A, UPC_E, All_1D, UPC_EAN_EXTENSION, MSI, PLESSEY, IMB.
+     *
+     * @return $this
+     */
+    public function setBarcodeType($barcode_type)
+    {
+        $this->container['barcode_type'] = $barcode_type;
 
         return $this;
     }

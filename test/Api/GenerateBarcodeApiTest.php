@@ -72,6 +72,16 @@ class GenerateBarcodeApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for generateBarcodeCode128
+     *
+     * Generate a EAN-13 code barcode as PNG file.
+     *
+     */
+    public function testGenerateBarcodeCode128()
+    {
+    }
+
+    /**
      * Test case for generateBarcodeEAN13
      *
      * Generate a EAN-13 code barcode as PNG file.

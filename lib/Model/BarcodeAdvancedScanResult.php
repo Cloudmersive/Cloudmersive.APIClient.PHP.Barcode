@@ -1,6 +1,6 @@
 <?php
 /**
- * BarcodeQRResultItem
+ * BarcodeAdvancedScanResult
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * BarcodeQRResultItem Class Doc Comment
+ * BarcodeAdvancedScanResult Class Doc Comment
  *
  * @category Class
- * @description QR barcode instance
+ * @description Result of the advanced barcode scan
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class BarcodeQRResultItem implements ModelInterface, ArrayAccess
+class BarcodeAdvancedScanResult implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class BarcodeQRResultItem implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BarcodeQRResultItem';
+    protected static $swaggerModelName = 'BarcodeAdvancedScanResult';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,10 @@ class BarcodeQRResultItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'raw_text' => 'string'
+        'successful' => 'bool',
+        'result_barcodes' => '\Swagger\Client\Model\BarcodeAdvancedResultItem[]',
+        'barcode_count' => 'int',
+        'error_message' => 'string'
     ];
 
     /**
@@ -67,7 +70,10 @@ class BarcodeQRResultItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'raw_text' => null
+        'successful' => null,
+        'result_barcodes' => null,
+        'barcode_count' => 'int32',
+        'error_message' => null
     ];
 
     /**
@@ -97,7 +103,10 @@ class BarcodeQRResultItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'raw_text' => 'RawText'
+        'successful' => 'Successful',
+        'result_barcodes' => 'ResultBarcodes',
+        'barcode_count' => 'BarcodeCount',
+        'error_message' => 'ErrorMessage'
     ];
 
     /**
@@ -106,7 +115,10 @@ class BarcodeQRResultItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'raw_text' => 'setRawText'
+        'successful' => 'setSuccessful',
+        'result_barcodes' => 'setResultBarcodes',
+        'barcode_count' => 'setBarcodeCount',
+        'error_message' => 'setErrorMessage'
     ];
 
     /**
@@ -115,7 +127,10 @@ class BarcodeQRResultItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'raw_text' => 'getRawText'
+        'successful' => 'getSuccessful',
+        'result_barcodes' => 'getResultBarcodes',
+        'barcode_count' => 'getBarcodeCount',
+        'error_message' => 'getErrorMessage'
     ];
 
     /**
@@ -178,7 +193,10 @@ class BarcodeQRResultItem implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['raw_text'] = isset($data['raw_text']) ? $data['raw_text'] : null;
+        $this->container['successful'] = isset($data['successful']) ? $data['successful'] : null;
+        $this->container['result_barcodes'] = isset($data['result_barcodes']) ? $data['result_barcodes'] : null;
+        $this->container['barcode_count'] = isset($data['barcode_count']) ? $data['barcode_count'] : null;
+        $this->container['error_message'] = isset($data['error_message']) ? $data['error_message'] : null;
     }
 
     /**
@@ -206,25 +224,97 @@ class BarcodeQRResultItem implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets raw_text
+     * Gets successful
      *
-     * @return string
+     * @return bool
      */
-    public function getRawText()
+    public function getSuccessful()
     {
-        return $this->container['raw_text'];
+        return $this->container['successful'];
     }
 
     /**
-     * Sets raw_text
+     * Sets successful
      *
-     * @param string $raw_text The barcode text
+     * @param bool $successful True if the operation was successful, false otherwise
      *
      * @return $this
      */
-    public function setRawText($raw_text)
+    public function setSuccessful($successful)
     {
-        $this->container['raw_text'] = $raw_text;
+        $this->container['successful'] = $successful;
+
+        return $this;
+    }
+
+    /**
+     * Gets result_barcodes
+     *
+     * @return \Swagger\Client\Model\BarcodeAdvancedResultItem[]
+     */
+    public function getResultBarcodes()
+    {
+        return $this->container['result_barcodes'];
+    }
+
+    /**
+     * Sets result_barcodes
+     *
+     * @param \Swagger\Client\Model\BarcodeAdvancedResultItem[] $result_barcodes Results of performing the barcode scan operation
+     *
+     * @return $this
+     */
+    public function setResultBarcodes($result_barcodes)
+    {
+        $this->container['result_barcodes'] = $result_barcodes;
+
+        return $this;
+    }
+
+    /**
+     * Gets barcode_count
+     *
+     * @return int
+     */
+    public function getBarcodeCount()
+    {
+        return $this->container['barcode_count'];
+    }
+
+    /**
+     * Sets barcode_count
+     *
+     * @param int $barcode_count Number of barcodes read
+     *
+     * @return $this
+     */
+    public function setBarcodeCount($barcode_count)
+    {
+        $this->container['barcode_count'] = $barcode_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets error_message
+     *
+     * @return string
+     */
+    public function getErrorMessage()
+    {
+        return $this->container['error_message'];
+    }
+
+    /**
+     * Sets error_message
+     *
+     * @param string $error_message Error message if any
+     *
+     * @return $this
+     */
+    public function setErrorMessage($error_message)
+    {
+        $this->container['error_message'] = $error_message;
 
         return $this;
     }

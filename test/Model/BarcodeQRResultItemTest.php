@@ -33,7 +33,7 @@ namespace Swagger\Client;
  * BarcodeQRResultItemTest Class Doc Comment
  *
  * @category    Class
- * @description BarcodeQRResultItem
+ * @description QR barcode instance
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen

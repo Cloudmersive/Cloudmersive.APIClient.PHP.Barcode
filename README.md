@@ -4,7 +4,7 @@ Barcode APIs let you generate barcode images, and recognize values from images o
 [Cloudmersive Barcode API](https://www.cloudmersive.com/barcode-api) provides advanced barcode generation, lookup and recognition capabilities.
 
 - API version: v1
-- Package version: 3.1.0
+- Package version: 3.2.0
 
 
 ## Requirements
@@ -88,7 +88,9 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BarcodeLookupApi* | [**barcodeLookupEanLookup**](docs/Api/BarcodeLookupApi.md#barcodelookupeanlookup) | **POST** /barcode/lookup/ean | Lookup EAN barcode value, return product data
 *BarcodeScanApi* | [**barcodeScanImage**](docs/Api/BarcodeScanApi.md#barcodescanimage) | **POST** /barcode/scan/image | Scan and recognize an image of a barcode
+*BarcodeScanApi* | [**barcodeScanImageAdvanced**](docs/Api/BarcodeScanApi.md#barcodescanimageadvanced) | **POST** /barcode/scan/image/advanced | Advanced AI scan and recognition of an image of one or more barcodes of any type
 *BarcodeScanApi* | [**barcodeScanImageAdvancedQR**](docs/Api/BarcodeScanApi.md#barcodescanimageadvancedqr) | **POST** /barcode/scan/image/advanced/qr | Advanced AI scan and recognition of an image of one or more QR barcodes
+*GenerateBarcodeApi* | [**generateBarcodeCode128**](docs/Api/GenerateBarcodeApi.md#generatebarcodecode128) | **POST** /barcode/generate/code-128 | Generate a EAN-13 code barcode as PNG file
 *GenerateBarcodeApi* | [**generateBarcodeEAN13**](docs/Api/GenerateBarcodeApi.md#generatebarcodeean13) | **POST** /barcode/generate/ean-13 | Generate a EAN-13 code barcode as PNG file
 *GenerateBarcodeApi* | [**generateBarcodeEAN8**](docs/Api/GenerateBarcodeApi.md#generatebarcodeean8) | **POST** /barcode/generate/ean-8 | Generate a EAN-8 code barcode as PNG file
 *GenerateBarcodeApi* | [**generateBarcodeQRCode**](docs/Api/GenerateBarcodeApi.md#generatebarcodeqrcode) | **POST** /barcode/generate/qrcode | Generate a QR code barcode as PNG file
@@ -98,6 +100,8 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [BarcodeAdvancedResultItem](docs/Model/BarcodeAdvancedResultItem.md)
+ - [BarcodeAdvancedScanResult](docs/Model/BarcodeAdvancedScanResult.md)
  - [BarcodeLookupResponse](docs/Model/BarcodeLookupResponse.md)
  - [BarcodeQRResultItem](docs/Model/BarcodeQRResultItem.md)
  - [BarcodeScanQRAdvancedResult](docs/Model/BarcodeScanQRAdvancedResult.md)

@@ -88,19 +88,318 @@ class GenerateBarcodeApi
     }
 
     /**
-     * Operation generateBarcodeEAN13
+     * Operation generateBarcodeCode128
      *
      * Generate a EAN-13 code barcode as PNG file
      *
      * @param  string $value Barcode value to generate from (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  bool $include_label Optional: show text label on the image of the barcode value, default is true. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function generateBarcodeEAN13($value)
+    public function generateBarcodeCode128($value, $width = null, $height = null, $include_label = null)
     {
-        list($response) = $this->generateBarcodeEAN13WithHttpInfo($value);
+        list($response) = $this->generateBarcodeCode128WithHttpInfo($value, $width, $height, $include_label);
+        return $response;
+    }
+
+    /**
+     * Operation generateBarcodeCode128WithHttpInfo
+     *
+     * Generate a EAN-13 code barcode as PNG file
+     *
+     * @param  string $value Barcode value to generate from (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  bool $include_label Optional: show text label on the image of the barcode value, default is true. (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function generateBarcodeCode128WithHttpInfo($value, $width = null, $height = null, $include_label = null)
+    {
+        $returnType = 'string';
+        $request = $this->generateBarcodeCode128Request($value, $width, $height, $include_label);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation generateBarcodeCode128Async
+     *
+     * Generate a EAN-13 code barcode as PNG file
+     *
+     * @param  string $value Barcode value to generate from (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  bool $include_label Optional: show text label on the image of the barcode value, default is true. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function generateBarcodeCode128Async($value, $width = null, $height = null, $include_label = null)
+    {
+        return $this->generateBarcodeCode128AsyncWithHttpInfo($value, $width, $height, $include_label)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation generateBarcodeCode128AsyncWithHttpInfo
+     *
+     * Generate a EAN-13 code barcode as PNG file
+     *
+     * @param  string $value Barcode value to generate from (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  bool $include_label Optional: show text label on the image of the barcode value, default is true. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function generateBarcodeCode128AsyncWithHttpInfo($value, $width = null, $height = null, $include_label = null)
+    {
+        $returnType = 'string';
+        $request = $this->generateBarcodeCode128Request($value, $width, $height, $include_label);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'generateBarcodeCode128'
+     *
+     * @param  string $value Barcode value to generate from (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  bool $include_label Optional: show text label on the image of the barcode value, default is true. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function generateBarcodeCode128Request($value, $width = null, $height = null, $include_label = null)
+    {
+        // verify the required parameter 'value' is set
+        if ($value === null || (is_array($value) && count($value) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $value when calling generateBarcodeCode128'
+            );
+        }
+
+        $resourcePath = '/barcode/generate/code-128';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($width !== null) {
+            $headerParams['width'] = ObjectSerializer::toHeaderValue($width);
+        }
+        // header params
+        if ($height !== null) {
+            $headerParams['height'] = ObjectSerializer::toHeaderValue($height);
+        }
+        // header params
+        if ($include_label !== null) {
+            $headerParams['includeLabel'] = ObjectSerializer::toHeaderValue($include_label);
+        }
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($value)) {
+            $_tempBody = $value;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/octet-stream']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/octet-stream'],
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Apikey');
+        if ($apiKey !== null) {
+            $headers['Apikey'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation generateBarcodeEAN13
+     *
+     * Generate a EAN-13 code barcode as PNG file
+     *
+     * @param  string $value Barcode value to generate from (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  bool $include_label Optional: show text label on the image of the barcode value, default is true. (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return string
+     */
+    public function generateBarcodeEAN13($value, $width = null, $height = null, $include_label = null)
+    {
+        list($response) = $this->generateBarcodeEAN13WithHttpInfo($value, $width, $height, $include_label);
         return $response;
     }
 
@@ -110,15 +409,18 @@ class GenerateBarcodeApi
      * Generate a EAN-13 code barcode as PNG file
      *
      * @param  string $value Barcode value to generate from (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  bool $include_label Optional: show text label on the image of the barcode value, default is true. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function generateBarcodeEAN13WithHttpInfo($value)
+    public function generateBarcodeEAN13WithHttpInfo($value, $width = null, $height = null, $include_label = null)
     {
         $returnType = 'string';
-        $request = $this->generateBarcodeEAN13Request($value);
+        $request = $this->generateBarcodeEAN13Request($value, $width, $height, $include_label);
 
         try {
             $options = $this->createHttpClientOption();
@@ -185,13 +487,16 @@ class GenerateBarcodeApi
      * Generate a EAN-13 code barcode as PNG file
      *
      * @param  string $value Barcode value to generate from (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  bool $include_label Optional: show text label on the image of the barcode value, default is true. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateBarcodeEAN13Async($value)
+    public function generateBarcodeEAN13Async($value, $width = null, $height = null, $include_label = null)
     {
-        return $this->generateBarcodeEAN13AsyncWithHttpInfo($value)
+        return $this->generateBarcodeEAN13AsyncWithHttpInfo($value, $width, $height, $include_label)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -205,14 +510,17 @@ class GenerateBarcodeApi
      * Generate a EAN-13 code barcode as PNG file
      *
      * @param  string $value Barcode value to generate from (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  bool $include_label Optional: show text label on the image of the barcode value, default is true. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateBarcodeEAN13AsyncWithHttpInfo($value)
+    public function generateBarcodeEAN13AsyncWithHttpInfo($value, $width = null, $height = null, $include_label = null)
     {
         $returnType = 'string';
-        $request = $this->generateBarcodeEAN13Request($value);
+        $request = $this->generateBarcodeEAN13Request($value, $width, $height, $include_label);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -255,11 +563,14 @@ class GenerateBarcodeApi
      * Create request for operation 'generateBarcodeEAN13'
      *
      * @param  string $value Barcode value to generate from (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  bool $include_label Optional: show text label on the image of the barcode value, default is true. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function generateBarcodeEAN13Request($value)
+    protected function generateBarcodeEAN13Request($value, $width = null, $height = null, $include_label = null)
     {
         // verify the required parameter 'value' is set
         if ($value === null || (is_array($value) && count($value) === 0)) {
@@ -275,6 +586,18 @@ class GenerateBarcodeApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($width !== null) {
+            $headerParams['width'] = ObjectSerializer::toHeaderValue($width);
+        }
+        // header params
+        if ($height !== null) {
+            $headerParams['height'] = ObjectSerializer::toHeaderValue($height);
+        }
+        // header params
+        if ($include_label !== null) {
+            $headerParams['includeLabel'] = ObjectSerializer::toHeaderValue($include_label);
+        }
 
 
         // body params
@@ -362,14 +685,17 @@ class GenerateBarcodeApi
      * Generate a EAN-8 code barcode as PNG file
      *
      * @param  string $value Barcode value to generate from (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  bool $include_label Optional: show text label on the image of the barcode value, default is true. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function generateBarcodeEAN8($value)
+    public function generateBarcodeEAN8($value, $width = null, $height = null, $include_label = null)
     {
-        list($response) = $this->generateBarcodeEAN8WithHttpInfo($value);
+        list($response) = $this->generateBarcodeEAN8WithHttpInfo($value, $width, $height, $include_label);
         return $response;
     }
 
@@ -379,15 +705,18 @@ class GenerateBarcodeApi
      * Generate a EAN-8 code barcode as PNG file
      *
      * @param  string $value Barcode value to generate from (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  bool $include_label Optional: show text label on the image of the barcode value, default is true. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function generateBarcodeEAN8WithHttpInfo($value)
+    public function generateBarcodeEAN8WithHttpInfo($value, $width = null, $height = null, $include_label = null)
     {
         $returnType = 'string';
-        $request = $this->generateBarcodeEAN8Request($value);
+        $request = $this->generateBarcodeEAN8Request($value, $width, $height, $include_label);
 
         try {
             $options = $this->createHttpClientOption();
@@ -454,13 +783,16 @@ class GenerateBarcodeApi
      * Generate a EAN-8 code barcode as PNG file
      *
      * @param  string $value Barcode value to generate from (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  bool $include_label Optional: show text label on the image of the barcode value, default is true. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateBarcodeEAN8Async($value)
+    public function generateBarcodeEAN8Async($value, $width = null, $height = null, $include_label = null)
     {
-        return $this->generateBarcodeEAN8AsyncWithHttpInfo($value)
+        return $this->generateBarcodeEAN8AsyncWithHttpInfo($value, $width, $height, $include_label)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -474,14 +806,17 @@ class GenerateBarcodeApi
      * Generate a EAN-8 code barcode as PNG file
      *
      * @param  string $value Barcode value to generate from (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  bool $include_label Optional: show text label on the image of the barcode value, default is true. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateBarcodeEAN8AsyncWithHttpInfo($value)
+    public function generateBarcodeEAN8AsyncWithHttpInfo($value, $width = null, $height = null, $include_label = null)
     {
         $returnType = 'string';
-        $request = $this->generateBarcodeEAN8Request($value);
+        $request = $this->generateBarcodeEAN8Request($value, $width, $height, $include_label);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -524,11 +859,14 @@ class GenerateBarcodeApi
      * Create request for operation 'generateBarcodeEAN8'
      *
      * @param  string $value Barcode value to generate from (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  bool $include_label Optional: show text label on the image of the barcode value, default is true. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function generateBarcodeEAN8Request($value)
+    protected function generateBarcodeEAN8Request($value, $width = null, $height = null, $include_label = null)
     {
         // verify the required parameter 'value' is set
         if ($value === null || (is_array($value) && count($value) === 0)) {
@@ -544,6 +882,18 @@ class GenerateBarcodeApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($width !== null) {
+            $headerParams['width'] = ObjectSerializer::toHeaderValue($width);
+        }
+        // header params
+        if ($height !== null) {
+            $headerParams['height'] = ObjectSerializer::toHeaderValue($height);
+        }
+        // header params
+        if ($include_label !== null) {
+            $headerParams['includeLabel'] = ObjectSerializer::toHeaderValue($include_label);
+        }
 
 
         // body params
@@ -631,14 +981,16 @@ class GenerateBarcodeApi
      * Generate a QR code barcode as PNG file
      *
      * @param  string $value QR code text to convert into the QR code barcode (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function generateBarcodeQRCode($value)
+    public function generateBarcodeQRCode($value, $width = null, $height = null)
     {
-        list($response) = $this->generateBarcodeQRCodeWithHttpInfo($value);
+        list($response) = $this->generateBarcodeQRCodeWithHttpInfo($value, $width, $height);
         return $response;
     }
 
@@ -648,15 +1000,17 @@ class GenerateBarcodeApi
      * Generate a QR code barcode as PNG file
      *
      * @param  string $value QR code text to convert into the QR code barcode (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function generateBarcodeQRCodeWithHttpInfo($value)
+    public function generateBarcodeQRCodeWithHttpInfo($value, $width = null, $height = null)
     {
         $returnType = 'string';
-        $request = $this->generateBarcodeQRCodeRequest($value);
+        $request = $this->generateBarcodeQRCodeRequest($value, $width, $height);
 
         try {
             $options = $this->createHttpClientOption();
@@ -723,13 +1077,15 @@ class GenerateBarcodeApi
      * Generate a QR code barcode as PNG file
      *
      * @param  string $value QR code text to convert into the QR code barcode (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateBarcodeQRCodeAsync($value)
+    public function generateBarcodeQRCodeAsync($value, $width = null, $height = null)
     {
-        return $this->generateBarcodeQRCodeAsyncWithHttpInfo($value)
+        return $this->generateBarcodeQRCodeAsyncWithHttpInfo($value, $width, $height)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -743,14 +1099,16 @@ class GenerateBarcodeApi
      * Generate a QR code barcode as PNG file
      *
      * @param  string $value QR code text to convert into the QR code barcode (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateBarcodeQRCodeAsyncWithHttpInfo($value)
+    public function generateBarcodeQRCodeAsyncWithHttpInfo($value, $width = null, $height = null)
     {
         $returnType = 'string';
-        $request = $this->generateBarcodeQRCodeRequest($value);
+        $request = $this->generateBarcodeQRCodeRequest($value, $width, $height);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -793,11 +1151,13 @@ class GenerateBarcodeApi
      * Create request for operation 'generateBarcodeQRCode'
      *
      * @param  string $value QR code text to convert into the QR code barcode (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function generateBarcodeQRCodeRequest($value)
+    protected function generateBarcodeQRCodeRequest($value, $width = null, $height = null)
     {
         // verify the required parameter 'value' is set
         if ($value === null || (is_array($value) && count($value) === 0)) {
@@ -813,6 +1173,14 @@ class GenerateBarcodeApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($width !== null) {
+            $headerParams['width'] = ObjectSerializer::toHeaderValue($width);
+        }
+        // header params
+        if ($height !== null) {
+            $headerParams['height'] = ObjectSerializer::toHeaderValue($height);
+        }
 
 
         // body params
@@ -900,14 +1268,17 @@ class GenerateBarcodeApi
      * Generate a UPC-A code barcode as PNG file
      *
      * @param  string $value UPC-A barcode value to generate from (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  bool $include_label Optional: show text label on the image of the barcode value, default is true. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function generateBarcodeUPCA($value)
+    public function generateBarcodeUPCA($value, $width = null, $height = null, $include_label = null)
     {
-        list($response) = $this->generateBarcodeUPCAWithHttpInfo($value);
+        list($response) = $this->generateBarcodeUPCAWithHttpInfo($value, $width, $height, $include_label);
         return $response;
     }
 
@@ -917,15 +1288,18 @@ class GenerateBarcodeApi
      * Generate a UPC-A code barcode as PNG file
      *
      * @param  string $value UPC-A barcode value to generate from (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  bool $include_label Optional: show text label on the image of the barcode value, default is true. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function generateBarcodeUPCAWithHttpInfo($value)
+    public function generateBarcodeUPCAWithHttpInfo($value, $width = null, $height = null, $include_label = null)
     {
         $returnType = 'string';
-        $request = $this->generateBarcodeUPCARequest($value);
+        $request = $this->generateBarcodeUPCARequest($value, $width, $height, $include_label);
 
         try {
             $options = $this->createHttpClientOption();
@@ -992,13 +1366,16 @@ class GenerateBarcodeApi
      * Generate a UPC-A code barcode as PNG file
      *
      * @param  string $value UPC-A barcode value to generate from (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  bool $include_label Optional: show text label on the image of the barcode value, default is true. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateBarcodeUPCAAsync($value)
+    public function generateBarcodeUPCAAsync($value, $width = null, $height = null, $include_label = null)
     {
-        return $this->generateBarcodeUPCAAsyncWithHttpInfo($value)
+        return $this->generateBarcodeUPCAAsyncWithHttpInfo($value, $width, $height, $include_label)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1012,14 +1389,17 @@ class GenerateBarcodeApi
      * Generate a UPC-A code barcode as PNG file
      *
      * @param  string $value UPC-A barcode value to generate from (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  bool $include_label Optional: show text label on the image of the barcode value, default is true. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateBarcodeUPCAAsyncWithHttpInfo($value)
+    public function generateBarcodeUPCAAsyncWithHttpInfo($value, $width = null, $height = null, $include_label = null)
     {
         $returnType = 'string';
-        $request = $this->generateBarcodeUPCARequest($value);
+        $request = $this->generateBarcodeUPCARequest($value, $width, $height, $include_label);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1062,11 +1442,14 @@ class GenerateBarcodeApi
      * Create request for operation 'generateBarcodeUPCA'
      *
      * @param  string $value UPC-A barcode value to generate from (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  bool $include_label Optional: show text label on the image of the barcode value, default is true. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function generateBarcodeUPCARequest($value)
+    protected function generateBarcodeUPCARequest($value, $width = null, $height = null, $include_label = null)
     {
         // verify the required parameter 'value' is set
         if ($value === null || (is_array($value) && count($value) === 0)) {
@@ -1082,6 +1465,18 @@ class GenerateBarcodeApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($width !== null) {
+            $headerParams['width'] = ObjectSerializer::toHeaderValue($width);
+        }
+        // header params
+        if ($height !== null) {
+            $headerParams['height'] = ObjectSerializer::toHeaderValue($height);
+        }
+        // header params
+        if ($include_label !== null) {
+            $headerParams['includeLabel'] = ObjectSerializer::toHeaderValue($include_label);
+        }
 
 
         // body params
@@ -1169,14 +1564,17 @@ class GenerateBarcodeApi
      * Generate a UPC-E code barcode as PNG file
      *
      * @param  string $value UPC-E barcode value to generate from (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  bool $include_label Optional: show text label on the image of the barcode value, default is true. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function generateBarcodeUPCE($value)
+    public function generateBarcodeUPCE($value, $width = null, $height = null, $include_label = null)
     {
-        list($response) = $this->generateBarcodeUPCEWithHttpInfo($value);
+        list($response) = $this->generateBarcodeUPCEWithHttpInfo($value, $width, $height, $include_label);
         return $response;
     }
 
@@ -1186,15 +1584,18 @@ class GenerateBarcodeApi
      * Generate a UPC-E code barcode as PNG file
      *
      * @param  string $value UPC-E barcode value to generate from (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  bool $include_label Optional: show text label on the image of the barcode value, default is true. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function generateBarcodeUPCEWithHttpInfo($value)
+    public function generateBarcodeUPCEWithHttpInfo($value, $width = null, $height = null, $include_label = null)
     {
         $returnType = 'string';
-        $request = $this->generateBarcodeUPCERequest($value);
+        $request = $this->generateBarcodeUPCERequest($value, $width, $height, $include_label);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1261,13 +1662,16 @@ class GenerateBarcodeApi
      * Generate a UPC-E code barcode as PNG file
      *
      * @param  string $value UPC-E barcode value to generate from (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  bool $include_label Optional: show text label on the image of the barcode value, default is true. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateBarcodeUPCEAsync($value)
+    public function generateBarcodeUPCEAsync($value, $width = null, $height = null, $include_label = null)
     {
-        return $this->generateBarcodeUPCEAsyncWithHttpInfo($value)
+        return $this->generateBarcodeUPCEAsyncWithHttpInfo($value, $width, $height, $include_label)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1281,14 +1685,17 @@ class GenerateBarcodeApi
      * Generate a UPC-E code barcode as PNG file
      *
      * @param  string $value UPC-E barcode value to generate from (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  bool $include_label Optional: show text label on the image of the barcode value, default is true. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateBarcodeUPCEAsyncWithHttpInfo($value)
+    public function generateBarcodeUPCEAsyncWithHttpInfo($value, $width = null, $height = null, $include_label = null)
     {
         $returnType = 'string';
-        $request = $this->generateBarcodeUPCERequest($value);
+        $request = $this->generateBarcodeUPCERequest($value, $width, $height, $include_label);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1331,11 +1738,14 @@ class GenerateBarcodeApi
      * Create request for operation 'generateBarcodeUPCE'
      *
      * @param  string $value UPC-E barcode value to generate from (required)
+     * @param  int $width Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  int $height Optional: width of the barcode in pixels.  Minimum value of 10. (optional)
+     * @param  bool $include_label Optional: show text label on the image of the barcode value, default is true. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function generateBarcodeUPCERequest($value)
+    protected function generateBarcodeUPCERequest($value, $width = null, $height = null, $include_label = null)
     {
         // verify the required parameter 'value' is set
         if ($value === null || (is_array($value) && count($value) === 0)) {
@@ -1351,6 +1761,18 @@ class GenerateBarcodeApi
         $httpBody = '';
         $multipart = false;
 
+        // header params
+        if ($width !== null) {
+            $headerParams['width'] = ObjectSerializer::toHeaderValue($width);
+        }
+        // header params
+        if ($height !== null) {
+            $headerParams['height'] = ObjectSerializer::toHeaderValue($height);
+        }
+        // header params
+        if ($include_label !== null) {
+            $headerParams['includeLabel'] = ObjectSerializer::toHeaderValue($include_label);
+        }
 
 
         // body params
